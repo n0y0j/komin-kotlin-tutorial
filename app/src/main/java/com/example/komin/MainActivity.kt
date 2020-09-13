@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_main.*
+import android.content.Intent as Intent1
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +47,12 @@ class MainActivity : AppCompatActivity() {
 
         val gridviewAdapter = GridviewAdapter(this, img, text)
         gridview.adapter = gridviewAdapter
+
+        gridview.setOnItemClickListener { adapterView, view, position, id ->
+
+            val intent = Intent1(this, LectureActivity::class.java)
+            startActivity(intent)
+        }
 
         viewpager = findViewById(R.id.viewpager) as ViewPager
 
