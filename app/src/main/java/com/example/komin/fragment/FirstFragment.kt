@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.komin.R
+import kotlinx.android.synthetic.main.fragment_first.view.*
 
 class FirstFragment : Fragment() {
 
@@ -14,6 +15,24 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        val view : View = inflater.inflate(R.layout.fragment_first, container, false)
+
+        val list_array = arrayListOf<ContentsListModel>(
+
+            ContentsListModel("a","b", 1,"d"),
+            ContentsListModel("a","b", 1,"d"),
+            ContentsListModel("a","b", 1,"d"),
+            ContentsListModel("a","b", 1,"d"),
+            ContentsListModel("a","b", 1,"d"),
+            ContentsListModel("a","b", 1,"d"),
+            ContentsListModel("a","b", 1,"d"),
+            ContentsListModel("a","b", 1,"d")
+
+        )
+
+        val list_adapter = FirstFragAdapter(requireContext(), list_array)
+        view.listview_first_fragment.adapter = list_adapter
+
+        return view
     }
 }
